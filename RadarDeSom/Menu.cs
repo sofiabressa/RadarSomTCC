@@ -15,19 +15,42 @@ namespace RadarDeSom
             this.InitializeComponent();
         }
 
+        private bool radarAtivo = false;
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (overlay == null || overlay.IsDisposed)
+            if (!radarAtivo)
             {
-                overlay = new Overlay
+                // Inicia o radar
+                if (overlay == null || overlay.IsDisposed)
                 {
-                    ParentHandle = base.Handle
-                };
-                overlay.Show();
+                    overlay = new Overlay
+                    {
+                        ParentHandle = base.Handle
+                    };
+                    overlay.Show();
+                }
+                else
+                {
+                    overlay.BringToFront();
+                }
+
+                radarAtivo = true;
+                button1.Text = "Stop";
+                button1.BackColor = Color.Red;
+                button1.ForeColor = Color.White;
             }
             else
             {
-                overlay.BringToFront();
+                // Para o radar
+                if (overlay != null && !overlay.IsDisposed)
+                {
+                    overlay.Close();
+                }
+
+                radarAtivo = false;
+                button1.Text = "Start";
+                button1.BackColor = SystemColors.MenuHighlight;
+                button1.ForeColor = Color.White;
             }
         }
 
@@ -62,13 +85,13 @@ namespace RadarDeSom
 
             if (radarTravado)
             {
-                button3.Text = "Mover";
+                button3.Text = "Move";
                 overlay.FormBorderStyle = FormBorderStyle.None;
                 overlay.TopMost = true;
             }
             else
             {
-                button3.Text = "Fixar";
+                button3.Text = "Fix";
                 overlay.FormBorderStyle = FormBorderStyle.SizableToolWindow;
                 overlay.WindowState = FormWindowState.Normal;
                 overlay.Width = 167;
@@ -86,7 +109,7 @@ namespace RadarDeSom
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Desenvolvido para o projeto: Representação Visual De Som Espacial Em Jogos Para Deficientes Auditivos.\r\n\nDeveloped for the project: Visual Representation of spatial sound in games for the hearing impaired\r\n\nDesenvolvedores | Developers: \r\n     João Victor do Nascimento Secate\r\n     Sofia de Moura Feitosa Bressa\r\n\nOrientador do projeto | Project Advisor:  \r\n     Rogério Pinto Alexandre\r\n\nBaseado em | Based on:\r\n     Canetis Radar\r\n", "Credits", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Desenvolvido para o projeto: Representação Visual De Som Espacial Em Jogos Para Deficientes Auditivos.\r\n\nDeveloped for the project: Visual Representation of spatial sound in games for the hearing impaired\r\n\nDesenvolvedores | Developers: \r\n     João Victor do Nascimento Secate\r\n     Sofia de Moura Feitosa Bressa\r\n\nOrientador do projeto | Project Advisor:  \r\n     Rogério Pinto Alexandre\r\n", "Credits", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
