@@ -1,9 +1,35 @@
 # RadarDeSom
-Utilizado para detecção da direção de som.
-Suporta dispositivos de som Estereos e Surround 7.1.
+Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) em Engenharia de Computação.
 
-Tambem suporta dispositivos Surround 7.1 Virtuais. \
+O RadarDeSom é uma ferramenta de acessibilidade que realiza a detecção da direção do som em tempo real, convertendo áudio espacial em uma representação visual em formato de radar.
+
+O objetivo é auxiliar jogadores com deficiência auditiva, permitindo identificar visualmente a direção predominante de sons como passos, disparos e alertas em jogos.
+
+Utilizado para detecção da direção de som. Suporta dispositivos de som Estéreo e Surround 7.1.
+
+Também suporta dispositivos Surround 7.1 virtuais. \
 Ex: Voicemeeter e VB-Cable
+
+## Sobre o repositório
+Este repositório contém:
+- Código-fonte completo do projeto
+- Solução e projetos do Visual Studio
+- Arquivos de configuração e dependências
+- Executável RadarDeSom.exe pronto para uso
+  
+### Para usuário final
+Para utilizar o sistema, **não é necessário compilar o código.**
+
+Basta baixar e executar o arquivo: **RadarDeSom.exe**
+
+### Para desenvolvedores
+Caso deseje estudar, modificar ou evoluir o projeto, o código-fonte completo está disponível no repositório.
+
+O sistema foi desenvolvido em:
+- C#
+- .NET 8
+- Visual Studio 2022
+- Biblioteca NAudio
 
 ## Configuração do Voicemeeter Banana (Recomendado)
 
